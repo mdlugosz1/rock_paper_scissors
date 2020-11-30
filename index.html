@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function computerPlay() {
+            const computerOptions = ['rock', 'paper', 'scissors'];
+            const computerChoice = computerOptions[Math.round(Math.random() * (computerOptions.length - 1))];
+            return computerChoice;
+        }
+
+        let computerPoints = 0;
+        let playerPoints = 0;
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                return `${playerSelection} ties with ${computerSelection}!`;
+            } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
+            (playerSelection === 'scissors' && computerSelection === 'rock') || 
+            (playerSelection === 'paper' && computerSelection === 'scissors') || 
+            ((playerSelection !== 'rock') && (playerSelection !== 'paper') && (playerSelection !== 'scissors'))) {
+                computerPoints++;
+                return `You loose! ${computerSelection} beats ${playerSelection}! Your score ${playerPoints} vs computer score ${computerPoints}`;
+            } else {
+                playerPoints++;
+                return `You win! ${playerSelection} beats ${computerSelection}!`;
+            }
+        }
+
+        function game() {
+            const rounds = 5;
+            for (i = 1; i <= rounds; i++) {
+                const playerSelection = prompt().toLowerCase();
+                const computerSelection = computerPlay();
+                console.log(playRound(playerSelection, computerSelection));
+            }
+
+            if (computerPoints > playerPoints) {
+                console.log(`Computer wins ${computerPoints} : ${playerPoints}`)
+            } else if (playerPoints > computerPoints) {
+                console.log(`You win ${playerPoints} : ${computerPoints}!`);
+            } else {
+                console.log('Tie!');
+            }
+        }
+
+        game();
+    </script>
+</body>
+
+</html>
