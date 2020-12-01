@@ -26,16 +26,14 @@
 
         function playRound(playerSelection, computerSelection) {
             if (playerSelection === computerSelection) {
-                return `${playerSelection} ties with ${computerSelection}!`;
+                return 0;
             } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
             (playerSelection === 'scissors' && computerSelection === 'rock') || 
             (playerSelection === 'paper' && computerSelection === 'scissors') || 
             ((playerSelection !== 'rock') && (playerSelection !== 'paper') && (playerSelection !== 'scissors'))) {
-                computerPoints++;
-                return `You loose! ${computerSelection} beats ${playerSelection}! Your score ${playerPoints} vs computer score ${computerPoints}`;
+                return -1;
             } else {
-                playerPoints++;
-                return `You win! ${playerSelection} beats ${computerSelection}!`;
+                return 1;
             }
         }
 
