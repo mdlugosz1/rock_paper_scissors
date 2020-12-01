@@ -17,12 +17,9 @@
         }
 
         function playerPlay() {
-            const playerSelection = prompt('Choose paper, rock or scissors:').toLowerCase();
-            return playerSelection;
+            const playerChoice = prompt('Type paper, rock or scissors:').toLowerCase();
+            return playerChoice;
         }
-
-        let computerPoints = 0;
-        let playerPoints = 0;
 
         function playRound(playerSelection, computerSelection) {
             if (playerSelection === computerSelection) {
@@ -34,6 +31,15 @@
                 return -1;
             } else {
                 return 1;
+            }
+        }
+
+        function checkResults() {
+            const result = playRound(playerSelection, computerSelection);
+            if (result === -1) {
+                return 'ai';
+            } else if (result === 1) {
+                return 'hu';
             }
         }
 
