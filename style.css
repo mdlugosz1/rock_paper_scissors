@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+main {
+    max-width: 1200px;
+    border: 1px solid black;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+}
+
+.scoreboard {
+    width: 100%;
+}
+
+.scores {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.gameboard {
+   
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-board {
+    position: relative;
+}
+
+.player-board, .computer-choice {
+    border: 1px dotted black;
+}
+
+.player-board, .round-history, .computer-choice{
+    height: 300px;
+    width: 30%;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.player-board button {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    background: none;
+    border: 1px dotted grey;
+}
+
+.player-board button i {
+    scale: 2.4;
+}

@@ -4,21 +4,20 @@ function computerPlay() {
     return computerChoice;
 }
 
-function playerPlay() {
-    const playerChoice = prompt('Type paper, rock or scissors:').toLowerCase();
-    return playerChoice;
+function playerPlay(playerChoice) {
+    return playerChoice.id;
 }
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return 0;
+        console.log(0);
     } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
     (playerSelection === 'scissors' && computerSelection === 'rock') || 
     (playerSelection === 'paper' && computerSelection === 'scissors') || 
     ((playerSelection !== 'rock') && (playerSelection !== 'paper') && (playerSelection !== 'scissors'))) {
-        return -1;
+        console.log(-1);
     } else {
-        return 1;
+        console.log(1);
     }
 }
 
@@ -64,4 +63,12 @@ function game() {
     finalScore(playerPoints, computerPoints);
 }
 
-game();
+
+
+document.querySelectorAll('.player-choice').forEach(element => {
+    element.addEventListener('click', function(e) {
+        playRound(playerPlay(element), computerPlay());
+    });
+});
+
+

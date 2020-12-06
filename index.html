@@ -4,11 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=`, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, paper, scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/52e19dd00e.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <script></script>
+    <main>
+        <h2>Rock, paper & scissors</h2>
+        <h3>Round</h3>
+        <div class="scoreboard">
+            <ul class="scores">
+                <li>
+                    Win
+                    <p>0</p>
+                </li>
+                <li>
+                    Draw
+                    <p>0</p>
+                </li>
+                <li>
+                    Win
+                    <p>0</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="gameboard">
+            <ul class="choices">
+                <li class="player-board">
+                    <div class="button-container">
+                        <button class="player-choice" id = "rock"><i class="far fa-hand-rock"></i></button>
+                        <button class="player-choice" id = "paper"><i class="far fa-hand-paper"></i></button>
+                        <button class="player-choice" id = "scissors"><i class="far fa-hand-scissors"></i></button>
+                    </div>
+                </li>
+                <li class="round-history">
+                    <h3>Game history</h3>
+                </li>
+                <li class="computer-choice"></li>
+            </ul>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
