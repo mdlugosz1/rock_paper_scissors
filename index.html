@@ -6,44 +6,37 @@
     <meta name="viewport" content="width=`, initial-scale=1.0">
     <title>Rock, paper, scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/52e19dd00e.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <main>
-        <h2>Rock, paper & scissors</h2>
-        <h3>Round</h3>
+        <h1>Rock, paper & scissors</h1>
+        <h3 class="rounds">Round <span>1</span></h3>
         <div class="scoreboard">
             <ul class="scores">
-                <li>
-                    Win
-                    <p>0</p>
-                </li>
-                <li>
-                    Draw
-                    <p>0</p>
-                </li>
-                <li>
-                    Win
-                    <p>0</p>
-                </li>
+                <li>WIN<span>0</span></li>
+                <li>DRAW<span>0</span></li>
+                <li>WIN<span>0</span></li>
             </ul>
         </div>
 
+        <h3>Game history</h3>
+        
         <div class="gameboard">
             <ul class="choices">
-                <li class="player-board">
-                    <div class="button-container">
-                        <button class="player-choice" value = "rock"><i class="far fa-hand-rock"></i></button>
-                        <button class="player-choice" value = "paper"><i class="far fa-hand-paper"></i></button>
-                        <button class="player-choice" value = "scissors"><i class="far fa-hand-scissors"></i></button>
-                    </div>
-                </li>
-                <li id="round-history">
-                    <h3>Game history</h3>
-                </li>
-                <li class="computer-choice"></li>
+                <li class="player-board rock"></li>
+                <li id="round-history"></li>
+                <li class="computer-board rock"></li>
             </ul>
+
+            <div class="button-container">
+                <button class="player-choice" value="rock"><i class="far fa-hand-rock"></i></button>
+                <button class="player-choice" value="paper"><i class="far fa-hand-paper"></i></button>
+                <button class="player-choice" value="scissors"><i class="far fa-hand-scissors"></i></button>
+            </div>
         </div>
     </main>
     <script src="scripts.js"></script>
