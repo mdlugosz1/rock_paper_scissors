@@ -1,4 +1,4 @@
-const playerPick = document.querySelectorAll('.player-choice');
+const playerChoice = document.querySelectorAll('.player-choice');
 const scoreBoard = document.querySelectorAll('.scores li span');
 const roundHistory = document.querySelector('#round-history');
 const computerBackground = document.querySelector('.computer-board');
@@ -15,23 +15,24 @@ begin();
 function begin() {
     roundHistory.textContent = '';
 
-    playerPick.forEach(element => {
+    playerChoice.forEach(element => {
         element.addEventListener('click', startGame);
     });
 }
 
 function startGame(event) {
-    const playerChoice = event.currentTarget.value;
+    const playerPick = event.currentTarget.value;
     const computerPick = computerPlay();
-    const round = playRound(playerChoice, computerPick);
+    const round = playRound(playerPick, computerPick);
+    roundHistory.style.fontSize = '18px';
 
-    changeBackground(playerChoice, playerBackground);
+    changeBackground(playerPick, playerBackground);
     changeBackground(computerPick, computerBackground);
     
     if ((playerPoints === 5) || (computerPoints === 5)) {
         endGame();
     } else {
-        checkResults(round, playerChoice, computerPick);
+        checkResults(round, playerPick, computerPick);
     }
 }
 
@@ -84,6 +85,7 @@ function checkResults(winner, playerInput, computerInput) {
         return writeResults;
     } else if (winner === 1) {
         showResults.textContent = `Win! ${playerInput} beats ${computerInput}!`;
+        showResults.style.color = '#e62649';
         return writeResults;
     } else {
         showResults.textContent = `Draw! ${playerInput} ties with ${computerInput}!`;      
@@ -94,19 +96,20 @@ function checkResults(winner, playerInput, computerInput) {
 function finalScore(playerPoints, computerPoints) {
     if (playerPoints > computerPoints) {
         roundHistory.textContent = `Player wins ${playerPoints} to ${computerPoints}!`;
-    } else if (computerPoints > playerPoints) {
+    } else {
         roundHistory.textContent = `Computer wins ${computerPoints} to ${playerPoints}!`;
     }
 }
 
 function endGame() {
+    roundHistory.style.fontSize = "20px";
     finalScore(playerPoints, computerPoints);
     playerPoints = 0;
     computerPoints = 0;
     draw = 0;
     rounds = 1;
 
-    playerPick.forEach(element => {
+    playerChoice.forEach(element => {
         element.removeEventListener('click', startGame);
     });
 
